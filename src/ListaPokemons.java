@@ -9,8 +9,8 @@ public class ListaPokemons {
         Pokemon pokemon3 =new Pokemon("Golisopod", "bicho","agua", 181);
         Pokemon pokemon4 =new Pokemon("Raichu_alola", "electrico","psiquico", 155);
         Pokemon pokemon5 =new Pokemon("Kommo-o", "dragon","lucha", 181);
-    //guardamos cada pokemon en un hueco del array
         Pokemon pokemon6 =new Pokemon("Lucario", "lucha","acero", 172);
+    //guardamos cada pokemon en un hueco del array
             this.catalogo[0]=pokemon1;
             this.catalogo[1]=pokemon2;
             this.catalogo[2]=pokemon3;
