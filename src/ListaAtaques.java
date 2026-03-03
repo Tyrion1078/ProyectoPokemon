@@ -1,19 +1,9 @@
 public class ListaAtaques {
     //estos seran las cajas donde guardaremos 6 ataques
     //que solo podra aprender cada pokemon
-        Ataque[] AtaquesGarchop;
-        Ataque[] AtaquesLycanroc;
-        Ataque[] AtaquesGolisopod;
-        Ataque[] AtaquesRaichu_alola;
-        Ataque[] AtaquesKommo_o;
-        Ataque[] AtaquesLucario;
+    Ataque [][] learnsets;
     public ListaAtaques(){
-        this.AtaquesGarchop=new Ataque[6];
-        this.AtaquesLycanroc=new Ataque[6];
-        this.AtaquesGolisopod=new Ataque[6];
-        this.AtaquesRaichu_alola=new Ataque[6];
-        this.AtaquesKommo_o=new Ataque[6];
-        this.AtaquesLucario=new Ataque[6];
+        this.learnsets=new Ataque[6][6];
     //creamos una lista de movimientos genericos que luego asignaremos
     Ataque GarraDragon = new Ataque("Garra Dragon", "Dragon", 80, 15); //garchop y komo-o
     Ataque RocasAfilada = new Ataque("Roca Afilada", "Roca", 100, 5); //lycanroc
@@ -32,66 +22,50 @@ public class ListaAtaques {
 
     //asignamos los ataques a cada set de movimientos validos de cada pokemon
     //garchop
-    this.AtaquesGarchop[0]=GarraDragon;
-    this.AtaquesGarchop[1]=CorteFuria;
-    this.AtaquesGarchop[2]=Placaje;
-    this.AtaquesGarchop[3]=Mordisco;
-    this.AtaquesGarchop[4]=Arremetida;
-    this.AtaquesGarchop[5]=GolpeCabeza;
+    this.learnsets[0][0]=GarraDragon;
+    this.learnsets[0][1]=CorteFuria;
+    this.learnsets[0][2]=Placaje;
+    this.learnsets[0][3]=Mordisco;
+    this.learnsets[0][4]=Arremetida;
+    this.learnsets[0][5]=GolpeCabeza;
     //licanroc
-    this.AtaquesLycanroc[0]=RocasAfilada;
-    this.AtaquesLycanroc[1]=Placaje;
-    this.AtaquesLycanroc[2]=Arremetida;
-    this.AtaquesLycanroc[3]=Mordisco;
-    this.AtaquesLycanroc[4]=GolpeCabeza;
-    this.AtaquesLycanroc[5]=ABocajarro;
+    this.learnsets[1][0]=RocasAfilada;
+    this.learnsets[1][1]=Placaje;
+    this.learnsets[1][2]=Arremetida;
+    this.learnsets[1][3]=Mordisco;
+    this.learnsets[1][4]=GolpeCabeza;
+    this.learnsets[1][5]=ABocajarro;
     //golisopod
-    this.AtaquesGolisopod[0]=AcuaJet;
-    this.AtaquesGolisopod[1]=CorteFuria;
-    this.AtaquesGolisopod[2]=Placaje;
-    this.AtaquesGolisopod[3]=Rapidez;
-    this.AtaquesGolisopod[4]=Arremetida;
-    this.AtaquesGolisopod[5]=GolpeCabeza;
+    this.learnsets[2][0]=AcuaJet;
+    this.learnsets[2][1]=CorteFuria;
+    this.learnsets[2][2]=Placaje;
+    this.learnsets[2][3]=Rapidez;
+    this.learnsets[2][4]=Arremetida;
+    this.learnsets[2][5]=GolpeCabeza;
     //raichu de alola
-    this.AtaquesRaichu_alola[0]=Rayo;
-    this.AtaquesRaichu_alola[1]=Psiquico;
-    this.AtaquesRaichu_alola[2]=Rapidez;
-    this.AtaquesRaichu_alola[3]=Placaje;
-    this.AtaquesRaichu_alola[4]=Mordisco;
-    this.AtaquesRaichu_alola[5]=Arremetida;
+    this.learnsets[3][0]=Rayo;
+    this.learnsets[3][1]=Psiquico;
+    this.learnsets[3][2]=Rapidez;
+    this.learnsets[3][3]=Placaje;
+    this.learnsets[3][4]=Mordisco;
+    this.learnsets[3][5]=Arremetida;
     //komo-o
-    this.AtaquesKommo_o[0]=ABocajarro;
-    this.AtaquesKommo_o[1]=OndaVacio;
-    this.AtaquesKommo_o[2]=Placaje;
-    this.AtaquesKommo_o[3]=Mordisco;
-    this.AtaquesKommo_o[4]=Arremetida;
-    this.AtaquesKommo_o[5]=Rapidez;   
+    this.learnsets[4][0]=ABocajarro;
+    this.learnsets[4][1]=OndaVacio;
+    this.learnsets[4][2]=Placaje;
+    this.learnsets[4][3]=Mordisco;
+    this.learnsets[4][4]=Arremetida;
+    this.learnsets[4][5]=Rapidez;   
     //lucario
-    this.AtaquesLucario[0]=EsferaAural;
-    this.AtaquesLucario[1]=OndaVacio;
-    this.AtaquesLucario[2]=Placaje;
-    this.AtaquesLucario[3]=Mordisco;
-    this.AtaquesLucario[4]=ABocajarro;
-    this.AtaquesLucario[5]=Rapidez;
+    this.learnsets[5][0]=EsferaAural;
+    this.learnsets[5][1]=OndaVacio;
+    this.learnsets[5][2]=Placaje;
+    this.learnsets[5][3]=Mordisco;
+    this.learnsets[5][4]=ABocajarro;
+    this.learnsets[5][5]=Rapidez;
     }
   //getters y setters
-    public Ataque[] getAtaquesGarchop() {
-        return AtaquesGarchop;
-    }
-    public Ataque[] getAtaquesLycanroc() {
-        return AtaquesLycanroc;
-    }
-    public Ataque[] getAtaquesGolisopod() {
-        return AtaquesGolisopod;
-    }
-     public Ataque[] getAtaquesRaichu_alola() {
-        return AtaquesRaichu_alola;
-    }
-      public Ataque[] getAtaquesKommo_o() {
-        return AtaquesKommo_o;
-    }
-       public Ataque[] getAtaquesLucario() {
-        return AtaquesLucario;
-    }
-
+public Ataque[][] getLearnsets(){
+    return learnsets;
+}
 }
