@@ -22,7 +22,7 @@ public class Pokemon {
             hpActual=0;
         }
         
-    }
+    }   
     //metodo para que los pokemon puedan aprenden ataques
     public void aprenderAtaque(Ataque nuevoAtaque, int posicionAtaque ){
             this.misAtaques[posicionAtaque]=nuevoAtaque;
