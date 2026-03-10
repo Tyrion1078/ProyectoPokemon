@@ -39,9 +39,12 @@ public class JuegoBase {
     Scanner ataquesSelecionados = new Scanner(System.in);
     //-----------------------------------------------------------------------------
     // 1ºpokemon eleguido
-    //-----------------------------------------------------------------------------   
+    //-----------------------------------------------------------------------------
+    System.out.println("====================================================");     
     System.out.println("Elija los 4 ataques que tendra "+ miPokemon1.getName());
+    System.out.println("====================================================");     
     System.out.println("estos son los ataques disponible para "+miPokemon1.getName());
+    System.out.println("====================================================");     
     for(int j=0; j<6; j++ ){
         System.out.println("("+(j+1)+")"+armeria.learnsets[nuPokemon1-1][j].getName());
     }
@@ -59,7 +62,9 @@ public class JuegoBase {
         }       
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");            
+            System.out.println("=======================================================");  
+            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");  
+            System.out.println("=======================================================");            
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
             // Volvemos a comprobar si el nuevo número también estaba repetido
@@ -77,10 +82,13 @@ public class JuegoBase {
     //-----------------------------------------------------------------------------
     // 2ºpokemon eleguido
     //-----------------------------------------------------------------------------
-System.out.println("Elija los 4 ataques que tendra "+ miPokemon2.getName());
+    System.out.println("====================================================");       
+    System.out.println("Elija los 4 ataques que tendra "+ miPokemon2.getName());
+    System.out.println("====================================================");     
     System.out.println("estos son los ataques disponible para "+miPokemon2.getName());
+    System.out.println("====================================================");     
     for(int j=0; j<6; j++ ){
-        System.out.println("("+(j+1)+")"+armeria.learnsets[nuPokemon1-1][j].getName());
+        System.out.println("("+(j+1)+")"+armeria.learnsets[nuPokemon2-1][j].getName());
     }   
     // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
     for(int i=0; i<4; i++ ){
@@ -95,7 +103,9 @@ System.out.println("Elija los 4 ataques que tendra "+ miPokemon2.getName());
         }       
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");            
+            System.out.println("=======================================================");  
+            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!"); 
+            System.out.println("=======================================================");             
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
             // Volvemos a comprobar si el nuevo número también estaba repetido
@@ -108,16 +118,18 @@ System.out.println("Elija los 4 ataques que tendra "+ miPokemon2.getName());
         }       
         // 4. Si ha salido del bucle, el número es válido. Lo guardamos en la memoria y en el Pokémon.
         memoriaAtaques[i] = pedirAtaque;
-        miPokemon2.aprenderAtaque(armeria.learnsets[nuPokemon1-1][pedirAtaque-1], i);
+        miPokemon2.aprenderAtaque(armeria.learnsets[nuPokemon2-1][pedirAtaque-1], i);
     }
     //-----------------------------------------------------------------------------
     // 3ºpokemon eleguido
     //-----------------------------------------------------------------------------
-        
-System.out.println("Elija los 4 ataques que tendra "+ miPokemon1.getName());
-    System.out.println("estos son los ataques disponible para "+miPokemon1.getName());
+    System.out.println("====================================================");            
+    System.out.println("Elija los 4 ataques que tendra "+ miPokemon3.getName());
+    System.out.println("====================================================");     
+    System.out.println("estos son los ataques disponible para "+miPokemon3.getName());
+    System.out.println("====================================================");     
     for(int j=0; j<6; j++ ){
-        System.out.println("("+(j+1)+")"+armeria.learnsets[nuPokemon1-1][j].getName());
+        System.out.println("("+(j+1)+")"+armeria.learnsets[nuPokemon3-1][j].getName());
     }   
     // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
     for(int i=0; i<4; i++ ){
@@ -132,7 +144,9 @@ System.out.println("Elija los 4 ataques que tendra "+ miPokemon1.getName());
         }       
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");            
+            System.out.println("=======================================================");  
+            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");   
+            System.out.println("=======================================================");           
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
             // Volvemos a comprobar si el nuevo número también estaba repetido
@@ -145,9 +159,106 @@ System.out.println("Elija los 4 ataques que tendra "+ miPokemon1.getName());
         }       
         // 4. Si ha salido del bucle, el número es válido. Lo guardamos en la memoria y en el Pokémon.
         memoriaAtaques[i] = pedirAtaque;
-        miPokemon3.aprenderAtaque(armeria.learnsets[nuPokemon1-1][pedirAtaque-1], i);
+        miPokemon3.aprenderAtaque(armeria.learnsets[nuPokemon3-1][pedirAtaque-1], i);
     }
-
+//Ahora haremos lo mismo con los pokemons rivales pero de forma aleatoria
+    //-----------------------------------------------------------------------------
+    // 1ºpokemon enemigo
+    //-----------------------------------------------------------------------------   
+    // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
+    int[] memoriaAtaquesRival = new int[4]; 
+    for(int i=0; i<4; i++ ){
+    int ataqueRandom = (int)(Math.random() * 6) + 1; 
+        //Comprobamos si el número ya está en nuestra memoria
+        boolean repetido = false;
+        for(int j=0; j<i; j++){
+            if(memoriaAtaquesRival[j] == ataqueRandom){
+                repetido = true;
+            }
+        }       
+        while (repetido == true) {
+            ataqueRandom = (int)(Math.random() * 6) + 1;
+            repetido = false;
+            for(int j=0; j<i; j++){
+                if(memoriaAtaquesRival[j] == ataqueRandom){
+                    repetido = true;
+                }
+            }
+        }       
+        //Si ha salido del bucle, el número es válido. Lo guardamos en la memoria y en el Pokémon.
+        memoriaAtaquesRival[i] = ataqueRandom;
+        PokemonRival1.aprenderAtaque(armeria.learnsets[nuRival1-1][ataqueRandom-1], i);
+    }
+    //-----------------------------------------------------------------------------
+    // 2ºpokemon enemigo
+    //-----------------------------------------------------------------------------  
+    for(int i=0; i<4; i++ ){
+    int ataqueRandom = (int)(Math.random() * 6) + 1; 
+        //Comprobamos si el número ya está en nuestra memoria
+        boolean repetido = false;
+        for(int j=0; j<i; j++){
+            if(memoriaAtaquesRival[j] == ataqueRandom){
+                repetido = true;
+            }
+        }       
+        while (repetido == true) {
+            ataqueRandom = (int)(Math.random() * 6) + 1;
+            repetido = false;
+            for(int j=0; j<i; j++){
+                if(memoriaAtaquesRival[j] == ataqueRandom){
+                    repetido = true;
+                }
+            }
+        }       
+        //Si ha salido del bucle, el número es válido. Lo guardamos en la memoria y en el Pokémon.
+        memoriaAtaquesRival[i] = ataqueRandom;
+        PokemonRival2.aprenderAtaque(armeria.learnsets[nuRival2-1][ataqueRandom-1], i);
+    }
+    //-----------------------------------------------------------------------------
+    // 3ºpokemon enemigo
+    //-----------------------------------------------------------------------------
+        for(int i=0; i<4; i++ ){
+    int ataqueRandom = (int)(Math.random() * 6) + 1; 
+        //Comprobamos si el número ya está en nuestra memoria
+        boolean repetido = false;
+        for(int j=0; j<i; j++){
+            if(memoriaAtaquesRival[j] == ataqueRandom){
+                repetido = true;
+            }
+        }       
+        while (repetido == true) {
+            ataqueRandom = (int)(Math.random() * 6) + 1;
+            repetido = false;
+            for(int j=0; j<i; j++){
+                if(memoriaAtaquesRival[j] == ataqueRandom){
+                    repetido = true;
+                }
+            }
+        }       
+        //Si ha salido del bucle, el número es válido. Lo guardamos en la memoria y en el Pokémon.
+        memoriaAtaquesRival[i] = ataqueRandom;
+        PokemonRival3.aprenderAtaque(armeria.learnsets[nuRival3-1][ataqueRandom-1], i);
+    }
+    System.out.println("=========================================");
+    System.out.println("¡EL EQUIPO RIVAL ESTÁ LISTO PARA PELEAR!");
+    System.out.println("=========================================");
+    
+    // Imprimimos el Rival 1
+    System.out.println("Rival 1: " + PokemonRival1.getName());
+    for(int i = 0; i < 4; i++) {
+        System.out.println("  - " + PokemonRival1.misAtaques[i].getName());
     }
     
+    // Imprimimos el Rival 2
+    System.out.println("Rival 2: " + PokemonRival2.getName());
+    for(int i = 0; i < 4; i++) {
+        System.out.println("  - " + PokemonRival2.misAtaques[i].getName());
+    }
+    
+    // Imprimimos el Rival 3
+    System.out.println("Rival 3: " + PokemonRival3.getName());
+    for(int i = 0; i < 4; i++) {
+        System.out.println("  - " + PokemonRival3.misAtaques[i].getName());
+    }
+    }
 }
