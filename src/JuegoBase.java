@@ -63,7 +63,7 @@ public class JuegoBase {
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
             System.out.println("=======================================================");  
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");  
+            System.out.println("\u001B[31m"+"No puedes eleguir un mismo ataque 2 veces elige otro!!"+"\u001B[0m");  
             System.out.println("=======================================================");            
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
@@ -104,7 +104,7 @@ public class JuegoBase {
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
             System.out.println("=======================================================");  
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!"); 
+            System.out.println("\u001B[31m"+"No puedes eleguir un mismo ataque 2 veces elige otro!!"+"\u001B[0m"); 
             System.out.println("=======================================================");             
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
@@ -145,8 +145,8 @@ public class JuegoBase {
         // 3. Si es tramposo, lo encerramos aquí hasta que dé un número nuevo
         while (repetido == true) {
             System.out.println("=======================================================");  
-            System.out.println("No puedes eleguir un mismo ataque 2 veces elige otro!!");   
-            System.out.println("=======================================================");           
+            System.out.println("\u001B[31m"+"No puedes eleguir un mismo ataque 2 veces elige otro!!"+"\u001B[0m"); 
+            System.out.println("=======================================================");         
             // AHORA SÍ GUARDAMOS EL NUEVO NÚMERO
             pedirAtaque = ataquesSelecionados.nextInt();           
             // Volvemos a comprobar si el nuevo número también estaba repetido
@@ -260,5 +260,10 @@ public class JuegoBase {
     for(int i = 0; i < 4; i++) {
         System.out.println("  - " + PokemonRival3.misAtaques[i].getName());
     }
-    }
+        System.out.println("================================");
+        System.out.println("¡QUE COMIENCE EL CONBATEEEE!");
+        System.out.println("================================");
+    Combate enpezarCombate=new Combate(miPokemon1, miPokemon2, miPokemon3, PokemonRival1, PokemonRival2, PokemonRival3);    
+    enpezarCombate.gameLoop();
+}
 }
