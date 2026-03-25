@@ -21,6 +21,7 @@ public class JuegoBase {
     int nuPokemon2 = eleguirPokemons.nextInt();
     System.out.println("introduzca el numero de su 3º pokemon");
     int nuPokemon3 = eleguirPokemons.nextInt();
+
     //relacionar los numeros con el pokemon elegido
     Pokemon miPokemon1=pokedex.getCatalogo()[nuPokemon1-1];
     Pokemon miPokemon2=pokedex.getCatalogo()[nuPokemon2-1];
@@ -161,6 +162,7 @@ public class JuegoBase {
         memoriaAtaques[i] = pedirAtaque;
         miPokemon3.aprenderAtaque(armeria.learnsets[nuPokemon3-1][pedirAtaque-1], i);
     }
+    
 //Ahora haremos lo mismo con los pokemons rivales pero de forma aleatoria
     //-----------------------------------------------------------------------------
     // 1ºpokemon enemigo

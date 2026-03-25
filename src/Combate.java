@@ -48,7 +48,11 @@ public class Combate {
               System.out.println("("+(i+1)+")" + miPokemonEnCombate.misAtaques[i].getName());}
               System.out.println("[(5)VOLVER]");
               miAccion=sc.nextInt();
-              
+              if (miAccion>0 && miAccion<5) {
+                int factorSuerte=(int)(Math.random()*16+85);
+                int danoTotal=(factorSuerte*miPokemonEnCombate.misAtaques[miAccion-1].potencia)/100;
+                pokemonRivalEnCombate.recibirDano(danoTotal);
+              }
             break;
           //CAMBIAR
           case 2:
@@ -89,8 +93,42 @@ public class Combate {
           //Error por accion no valida
           default:
             System.err.println("\u001B[31m"+"Opcion no valida"+"\u001B[0m");
-            break;
-        }
+            break;         
     }
-   }
+     if (miPokemonEnCombate.getHpActual()<=0) {
+              System.out.println(miPokemonEnCombate.getName()+" a sido debilitado\neligue otro pokemon");
+              do {
+              System.out.println("(1) "+miPokemon1.getName()+"\n(2) "+miPokemon2.getName()+"\n(3) "+miPokemon3.getName());
+              miAccion=0;
+              miAccion=sc.nextInt();
+              cambiarPor=null;
+              switch (miAccion) {
+                case 1:
+                  cambiarPor=miPokemon1;
+                 if (cambiarPor==miPokemonEnCombate||cambiarPor.getHpActual()<=0) {
+                  System.out.println("\u001B[31m" + "El pokemon seleccionado esta debilitado" + "\u001B[0m");
+                  }                
+               break;
+                case 2:
+                  cambiarPor=miPokemon2;
+                 if (cambiarPor==miPokemonEnCombate||cambiarPor.getHpActual()<=0) {
+                  System.out.println("\u001B[31m" + "El pokemon seleccionado esta debilitado" + "\u001B[0m");
+                 }
+               break;
+                case 3:
+                  cambiarPor=miPokemon3;
+                  if (cambiarPor==miPokemonEnCombate||cambiarPor.getHpActual()<=0) {
+                   System.out.println("\u001B[31m" + "El pokemon seleccionado esta debilitado" + "\u001B[0m");
+                 }
+               break;
+               default:
+                System.err.println("\u001B[31m"+"Opcion no valida"+"\u001B[0m");
+                break;
+                }            
+              } while (miAccion>3 || miAccion<1 || cambiarPor==miPokemonEnCombate || cambiarPor.getHpActual()<=0);
+                miPokemonEnCombate=cambiarPor;   
+                System.out.println("¡Adelante " + miPokemonEnCombate.getName() + "!");
+    }//Final if (comprobar hpAcutal)
+   }//Final while1
+  }//Final gameloop
 }
