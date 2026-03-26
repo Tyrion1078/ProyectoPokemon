@@ -27,6 +27,11 @@ public class Pokemon {
     public void aprenderAtaque(Ataque nuevoAtaque, int posicionAtaque ){
             this.misAtaques[posicionAtaque]=nuevoAtaque;
         }
+    //metodo de clonacion de creacion de pokemons
+    public Pokemon crear(){
+        Pokemon crear=new Pokemon(this.name, this.type1, this.type2, this.hpMax);
+        return crear;
+    }
     //getters y setters
     public String getName() {
         return name;

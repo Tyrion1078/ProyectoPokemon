@@ -15,25 +15,45 @@ public class JuegoBase {
     System.out.println("eliga 3 pokemons para pelear");
     //pedimos que introduzca los numero de uno en uno de los 3 pokemons que quiere utilizar
     Scanner eleguirPokemons = new Scanner(System.in);
+    //elegimos el 1º pokemon y comprovamos que no eliga otra opcion que no sea valida
     System.out.println("introduzca el numero de su 1º pokemon");
-    int nuPokemon1 = eleguirPokemons.nextInt();
+        int nuPokemon1;
+        do {
+        nuPokemon1 = eleguirPokemons.nextInt();
+        if (nuPokemon1<1||nuPokemon1>6){
+        System.out.println("\u001B[31m"+"opcion no valida\nvuelva a intentarlo"+"\u001B[0m");
+        }       
+        } while (nuPokemon1<1||nuPokemon1>6);
+    //elegimos el 2º pokemon y comprovamos que no eliga otra opcion que no sea valida
     System.out.println("introduzca el numero de su 2º pokemon");
-    int nuPokemon2 = eleguirPokemons.nextInt();
+        int nuPokemon2;
+        do {
+        nuPokemon2 = eleguirPokemons.nextInt();
+        if (nuPokemon2<1||nuPokemon2>6){
+        System.out.println("\u001B[31m"+"opcion no valida\nvuelva a intentarlo"+"\u001B[0m");
+        }       
+        } while (nuPokemon2<1||nuPokemon2>6);
+    //elegimos el 3º pokemon y comprovamos que no eliga otra opcion que no sea valida
     System.out.println("introduzca el numero de su 3º pokemon");
-    int nuPokemon3 = eleguirPokemons.nextInt();
-
+        int nuPokemon3;
+        do {
+        nuPokemon3 = eleguirPokemons.nextInt();
+        if (nuPokemon3<1||nuPokemon3>6){
+        System.out.println("\u001B[31m"+"opcion no valida\nvuelva a intentarlo"+"\u001B[0m");
+        }       
+        } while (nuPokemon3<1||nuPokemon3>6);
     //relacionar los numeros con el pokemon elegido
-    Pokemon miPokemon1=pokedex.getCatalogo()[nuPokemon1-1];
-    Pokemon miPokemon2=pokedex.getCatalogo()[nuPokemon2-1];
-    Pokemon miPokemon3=pokedex.getCatalogo()[nuPokemon3-1];
+    Pokemon miPokemon1=pokedex.getCatalogo()[nuPokemon1-1].crear();
+    Pokemon miPokemon2=pokedex.getCatalogo()[nuPokemon2-1].crear();
+    Pokemon miPokemon3=pokedex.getCatalogo()[nuPokemon3-1].crear();
     System.out.println("¡Perfecto! Tu equipo está compuesto por: " + miPokemon1.getName() + ", " + miPokemon2.getName() + " y " + miPokemon3.getName() + ".");
     //elejemos los 3 otros pokemons rivales de forma aleatoria
     int nuRival1 = (int)(Math.random() * 6) + 1;
     int nuRival2 = (int)(Math.random() * 6) + 1;
     int nuRival3 = (int)(Math.random() * 6) + 1;
-    Pokemon PokemonRival1=pokedex.getCatalogo()[nuRival1-1];
-    Pokemon PokemonRival2=pokedex.getCatalogo()[nuRival2-1];
-    Pokemon PokemonRival3=pokedex.getCatalogo()[nuRival3-1];
+    Pokemon PokemonRival1=pokedex.getCatalogo()[nuRival1-1].crear();
+    Pokemon PokemonRival2=pokedex.getCatalogo()[nuRival2-1].crear();
+    Pokemon PokemonRival3=pokedex.getCatalogo()[nuRival3-1].crear();
     //esta parte de codigo servira para que el usuario
     //elija los 4 ataques que tendra cada uno de sus pokemons eleguidos
     // 1ºpokemon eleguido
@@ -51,9 +71,15 @@ public class JuegoBase {
     }
     // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
     int[] memoriaAtaques = new int[4]; 
+    int pedirAtaque;
     for(int i=0; i<4; i++ ){
+       do {
         System.out.println("Eliga el "+(i+1)+"º ataque.");
-        int pedirAtaque = ataquesSelecionados.nextInt();            
+        pedirAtaque = ataquesSelecionados.nextInt();
+        if (pedirAtaque<1||pedirAtaque>6) {
+            System.out.println("\u001B[31m"+"No existe ese ataque"+"\u001B[0m");
+        }  
+        } while (pedirAtaque<1||pedirAtaque>6);       
         // 2. Comprobamos si el número ya está en nuestra memoria
         boolean repetido = false;
         for(int j=0; j<i; j++){
@@ -93,8 +119,13 @@ public class JuegoBase {
     }   
     // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
     for(int i=0; i<4; i++ ){
+        do {
         System.out.println("Eliga el "+(i+1)+"º ataque.");
-        int pedirAtaque = ataquesSelecionados.nextInt();            
+        pedirAtaque = ataquesSelecionados.nextInt();
+        if (pedirAtaque<1||pedirAtaque>6) {
+            System.out.println("\u001B[31m"+"No existe ese ataque"+"\u001B[0m");
+        }  
+        } while (pedirAtaque<1||pedirAtaque>6);           
         // 2. Comprobamos si el número ya está en nuestra memoria
         boolean repetido = false;
         for(int j=0; j<i; j++){
@@ -134,8 +165,13 @@ public class JuegoBase {
     }   
     // 1. CREAMOS UNA "MEMORIA" DE 4 HUECOS PARA RECORDAR LO QUE ELIGE
     for(int i=0; i<4; i++ ){
+        do {
         System.out.println("Eliga el "+(i+1)+"º ataque.");
-        int pedirAtaque = ataquesSelecionados.nextInt();            
+        pedirAtaque = ataquesSelecionados.nextInt();
+        if (pedirAtaque<1||pedirAtaque>6) {
+            System.out.println("\u001B[31m"+"No existe ese ataque"+"\u001B[0m");
+        }  
+        } while (pedirAtaque<1||pedirAtaque>6);          
         // 2. Comprobamos si el número ya está en nuestra memoria
         boolean repetido = false;
         for(int j=0; j<i; j++){
